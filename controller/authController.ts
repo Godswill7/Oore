@@ -26,9 +26,9 @@ export const registerUser = async (
     });
     const token = jwt.sign({ id: user._id }, "token");
 
-    // sendMail(user, token).then(() => {
-    //   console.log("Mail sent...!");
-    // });
+    sendMail(user, token).then(() => {
+      console.log("Mail sent...!");
+    });
 
     return res.status(HTTP.CREATED).json({
       message: "Registered user",

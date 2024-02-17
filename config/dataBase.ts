@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import { connect } from "mongoose";
 import { envVar } from "./envVariables";
 
-const mongoUrl: string = envVar.MONGO_URL;
+const mongoUrl: string = envVar.MONGO_URL!;
 
 export const dbConfig = () => {
-  mongoose.connect(mongoUrl!).then(() => {
+  connect(mongoUrl!).then(() => {
     console.log(`Database is connected`);
   });
 };

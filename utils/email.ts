@@ -4,13 +4,6 @@ import { google } from "googleapis";
 import path from "path";
 import ejs from "ejs";
 
-
-
-// GOOGLE_ID;
-// G_SECRET
-// G_REFRESH
-// G_URL
-
 const GOOGLE_ID: string = process.env.G_ID!;
 const GOOGLE_SECRET: string = process.env.G_SECRET!;
 const GOOGLE_REFRESH_TOKEN: string = process.env.G_REFRESH!;
@@ -41,11 +34,11 @@ export const sendMail = async (user: any, token: any) => {
       url: `${URL}/${token}/verify`,
     };
 
-    const locateFile = path.join(__dirname, "../views/verifyMail.ejs");
+    const locateFile = path.join(__dirname, "../views/accountOpening.ejs");
     const readData = await ejs.renderFile(locateFile, passedData);
 
     const mailer = {
-      from: `verify email ${user.email}`,
+      from: `verify email <udidagodswill7@gmail.com>`,
       to: user.email,
       subject: "verify-mail",
       html: readData,

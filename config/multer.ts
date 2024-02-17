@@ -1,5 +1,4 @@
 import { Request } from "express";
-import path from "path";
 import multer from "multer";
 
 const storage = multer.diskStorage({
